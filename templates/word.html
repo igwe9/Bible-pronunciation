@@ -1,0 +1,31 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" type="text/css">
+<hr>
+<form action="{{requests.get.url}} " method="GET" class="form-inline mt-2 mt-md-0">
+	<input id="word" name="word" value="{{ request.GET.word }}" class="form-control mr-sm-2 text-capitalize" type="text" placeholder="Search Word" aria-label="Search">
+	<button class="btn btn-outline-success my-0 my-sm-0" type="submit">Search</button>
+</form>
+
+
+<div class="col-md-4 col-sm-5 card rounded shadow-sm pd-5 bg-success">
+        <div class="card">
+            {% comment %} <img class="card-img w-100" src=" {% static 'img/carousel-1.jpg' %}" alt="img"> {% endcomment %}
+        </div>
+        <div class="card-header my-4">
+            <h4 class="my-0 font-weight-normal">{{word}}</h4>
+        </div>
+        <div class="card-body">
+        <button type="button" class="btn btn-primary card-title">
+            Audio Pronunciation of <span class="badge badge-light"> {{word}}</span>
+        </button>
+            {% comment %} <h3 class="card-title pricing-card-title text-danger">Audio Pronunciation of<big class="text-muted"> {{posts.word}} </big></h3> {% endcomment %}
+                <audio controls class="border">
+                    <source src="{{audio}}" type="audio/mp3">
+                    Your browser does not support the audio tag.
+                </audio>
+                <li> {{word}} </li>
+        </div>
+</div>
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>

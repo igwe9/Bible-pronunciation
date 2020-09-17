@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" type="text/css">
+
+<button type="button" class="col-md col-sm btn my-5"></button>
+<div class="row my-n2 mt-n2 m-5">
+    <div class="col-4 card shadow-sm pd-0 bg-success">
+        <div class="card">
+            <img class="card-img w-100" src=" {% static 'img/carousel-1.jpg' %}" alt="img">
+        </div>
+        <div class="card-header my-4">
+                <h4 class="my-0 text-light text-uppercase font-weight-normal">List of Words in database</h4>
+            </div>
+            {% for lists in list  %}
+            <div class="card-body my-6">
+                <li>
+                    {{lists.word}}
+                </li>
+            </div>
+            {% endfor %}
+    </div>
+    <div class="col-7  bg-success ml-2">
+            <div class="card-header my-4">
+                <h4 class="my-0 text-light text-uppercase font-weight-normal">List of Words in database</h4>
+            </div>
+            {% for lists in list  %}
+            <div class="card-body my-6">
+                <li>
+                    {{lists.word}}: searched on {{lists.date_created}}<br>
+                    <ol>
+                        <audio class="btn btn-group-toggle btn-light btn-sm" src="{{lists.audio_src}}" controls></audio>
+                    </ol>
+                </li>
+            </div>
+            {% endfor %}
+        </div>
+    <button type="button" class="col-md col-sm btn btn-primary">
+    </button>
+</div>

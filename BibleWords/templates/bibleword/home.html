@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<button type="button" class="col-md col-sm btn btn-primary"></button>
+{% for words in word  %}
+    <div class="col-md-4 col-sm-8 card rounded shadow-sm pd-5 bg-success">
+        <div class="card">
+            <img class="card-img w-100" src=" {% static 'img/carousel-1.jpg' %}" alt="img">
+        </div>
+        <div class="card-header my-4">
+            <h4 class="my-0 font-weight-normal">{{words.word}}</h4>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary card-title">
+                Audio Pronunciation of <span class="badge badge-light"> {{words.word}}</span>
+            </button><hr>
+            <audio controls>
+                <source src="{{words.audio_src}}" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+            <li> {{words.word}} </li>
+        </div>
+    </div>
+{% endfor %}
+<button type="button" class="col-md col-sm btn btn-primary">
+</button>
+
+{% endblock content %}
